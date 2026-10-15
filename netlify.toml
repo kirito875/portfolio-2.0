@@ -1,0 +1,18 @@
+# Netlify build configuration.
+#
+# The Next.js Runtime (@netlify/plugin-nextjs) is installed automatically by
+# Netlify for Next.js 13.5+ and is deliberately NOT pinned here: Netlify
+# maintains it and applies the latest version on every build, which is their
+# documented recommendation.
+#
+# Leaderboard storage needs no configuration. Scores use Netlify Blobs, whose
+# credentials Netlify injects into functions automatically. See
+# src/app/game/scoreStore.ts.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Next.js 14.2 needs Node 18.17+; pin so builds stay reproducible.
+  NODE_VERSION = "20"

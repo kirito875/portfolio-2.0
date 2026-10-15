@@ -1,0 +1,52 @@
+.button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-width: 260px;
+  padding: 16px 34px;
+  color: #f6f2ff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid rgba(196, 181, 253, 0.35);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #8b5cf6, #5b21b6);
+  box-shadow: 0 14px 34px -18px rgba(124, 58, 237, 0.95);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease,
+    border-color 0.28s ease;
+  z-index: 1;
+}
+
+/* light sweep that runs across the button on hover */
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(115deg, transparent 25%, rgba(255, 255, 255, 0.3) 50%, transparent 75%);
+  transform: translateX(-130%);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  border-color: rgba(196, 181, 253, 0.72);
+  box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.42), 0 24px 50px -20px rgba(139, 92, 246, 1);
+}
+
+.button:hover::before {
+  transform: translateX(130%);
+}
+
+.button:active {
+  transform: translateY(-1px) scale(0.985);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--violet-bright);
+  outline-offset: 3px;
+}

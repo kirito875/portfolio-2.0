@@ -1,0 +1,139 @@
+.contact {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 44px var(--gutter) 64px;
+}
+
+.contact__head {
+  max-width: 620px;
+  margin-bottom: 28px;
+  animation: fade-up 0.65s var(--ease) both;
+}
+
+.contact__head h1 {
+  margin: 6px 0 12px;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+}
+
+.contact__lede {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.contact__grid > .card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.contact__grid > .card:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.contact__place {
+  margin: 0 0 14px;
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.contact__bullets {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.contact__bullets li::marker {
+  color: var(--violet-bright);
+}
+
+.contact__list {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact__row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contact__row dt {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.contact__row dd {
+  margin: 0;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.contact__row a {
+  position: relative;
+  display: inline-block;
+  color: #cbb9ff;
+  text-decoration: none;
+  transition: color var(--speed) var(--ease);
+}
+
+.contact__row a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--violet-bright), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--speed) var(--ease);
+}
+
+.contact__row a:hover {
+  color: #fff;
+}
+
+.contact__row a:hover::after {
+  transform: scaleX(1);
+}
+
+/* ---------------------------- responsiveness ---------------------------- */
+@media (max-width: 1024px) {
+  .contact__head {
+    max-width: 100%;
+  }
+
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact {
+    padding-top: 32px;
+    padding-bottom: 48px;
+  }
+
+  .contact__head h1 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  .contact__lede {
+    font-size: 1rem;
+  }
+
+  .contact__bullets {
+    padding-left: 16px;
+  }
+}
